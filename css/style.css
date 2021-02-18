@@ -1,15 +1,22 @@
 *{
     font-family: ElectroluxVN,Electrolux Sans,Roboto,Arial,sans-serif;
     box-sizing: border-box;
+    outline: none;
+    outline-style: none;
 }
 html,body {
     overflow-x: hidden;
     position: relative;
     width: 100%;
+    height: 100%;
 }
 
 ul {
     list-style: none;
+}
+
+i {
+    outline-color: transparent;
 }
 
 :root {
@@ -19,7 +26,7 @@ ul {
     /* HEADER */
 .header{
     position: fixed;
-    background-color: #fff;
+    background-color: #011e41;
     width: 100%;
     box-shadow: 1px 1px rgb(139, 135, 135);
     z-index: 3;
@@ -30,6 +37,22 @@ ul {
     padding: 8px 40px;
     display: flex;
     width: 100%;
+    background-color: #fff;
+}
+
+.navigation-hidden {
+    animation: hiddenNavigation 0.2s forwards;
+}
+
+@keyframes hiddenNavigation {
+    from {
+        opacity: 1;
+        transform: translateX(50%);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100%);
+    }
 }
 
 .navigation-menu{
@@ -66,6 +89,7 @@ ul {
     font-size: 25px;
     cursor: pointer;
     color: var(--primary-color);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .navigation-menu-user{
@@ -754,12 +778,18 @@ ul {
 .navigation__menu-on-mobile {
     width: 100%;
     height: 100%;
-    position: relative;
-    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 4;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .navigation__menu-show {
-    display: block;
+    visibility: visible;
+    animation: showNavigationMenu 0.4s forwards 0.2s;
 }
 
 .navigation__menu-main {
@@ -770,6 +800,7 @@ ul {
     top: 0;
     left: 0;
     z-index: 1;
+    animation: showNavigationMenu 0.4s forwards 0.2s;
 }
 
 .navigation__menu-item {
@@ -802,6 +833,7 @@ ul {
     top: 0;
     left: 0;
     background-color: rgba(0, 0, 0, 0.404);
+    animation: showNavigationMenu 0.6s forwards 0.2s;
 }
 
 .navigation-overlay i {
@@ -810,6 +842,19 @@ ul {
     right: 28px;
     color: #fff;
     font-size: 28px;
+}
+
+
+@keyframes showNavigationMenu {
+    from {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
 }
 
 @media (min-width: 1024px) {
@@ -840,5 +885,14 @@ ul {
     }
     .navigation-icon {
         padding: 0 16px;
+    }
+    .hot-product-big img, .hot-product-small img {
+        padding: 40px;
+    }
+}
+
+@media (max-width: 414px) {
+    .hot-product-big img, .hot-product-small img {
+        padding: 20px;
     }
 }

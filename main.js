@@ -79,3 +79,20 @@ hotProducts.forEach(function(hotproduct, index) {
         hotProducts[index].classList.add('hot-product-menu-active');
     }
 })
+
+// Animation Menu
+
+var barsBtn = document.querySelector('.bars-btn'),
+    navigationMobile = document.querySelector('.navigation__menu-on-mobile'),
+    overlayNavigation = document.querySelector('.navigation-overlay'),
+    navigationElement = document.querySelector('.navigation');
+
+barsBtn.addEventListener('click', function() {
+    navigationMobile.classList.add('navigation__menu-show');
+    navigationElement.classList.add('navigation-hidden');
+});
+
+overlayNavigation.onclick = function() {
+    navigationMobile.classList.remove('navigation__menu-show');
+    navigationElement.classList.remove('navigation-hidden');
+}
