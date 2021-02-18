@@ -267,17 +267,6 @@ i {
     }
 }
 
-.banner-content {
-    width: 460px;
-    padding: 50px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-    margin-right: auto ;
-    margin-left: 120px;
-    border-radius: 3px;
-}
-
 .banner-content h2 {
     margin-top: 0;
     font-size: 32px;
@@ -366,9 +355,6 @@ i {
     top: 50%;
     left: 36px;
     transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
     padding-right: 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.5);
@@ -383,9 +369,6 @@ i {
     top: 50%;
     right:36px ;
     transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    font-size: 30px;
     padding-right: 10px;
     border-radius: 50%;
     background-color: rgba(255, 255, 255, 0.5);
@@ -867,6 +850,21 @@ i {
     .support-content {
         padding: 100px 130px;
     }
+    .banner-content {
+        width: 460px;
+        padding: 50px;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        margin-right: auto ;
+        margin-left: 120px;
+        border-radius: 3px;
+    }
+    .banner-btn-next, .banner-btn-prev {
+        font-size: 30px;
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -889,10 +887,28 @@ i {
     .hot-product-big img, .hot-product-small img {
         padding: 40px;
     }
+    .banner-content {
+        width: 100%;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        position: absolute;
+        padding: 20px;
+    }
+    .banner-btn-next, .banner-btn-prev {
+        font-size: 30px;
+        width: 60px;
+        height: 60px;
+    }
 }
 
 @media (max-width: 414px) {
     .hot-product-big img, .hot-product-small img {
         padding: 20px;
+    }
+    .banner-btn-next, .banner-btn-prev {
+        font-size: 20px;
+        width: 40px;
+        height: 40px;
     }
 }
