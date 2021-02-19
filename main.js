@@ -10,58 +10,52 @@ btnRightBanner = document.querySelector('.banner-btn-next');
 var index = 0;
 
 btnRightBanner.onclick = function() {
-    bannersImg[index].classList.add('banner-img-hiddenbynext');
-    if (index == (bannersImg.length-1)) {
+    if (index == 0) {
+        bannersImg[0].classList.add('banner-img-hiddenbynext');
+        bannersImg[1].classList.add('banner-img-showbynext');
+        bannersImg[0].addEventListener('webkitAnimationEnd', function() {
+            bannersImg[0].classList.remove('banner-img-hiddenbynext');
+            bannersImg[1].classList.remove('banner-img-showbynext');
+            bannersImg[0].classList.remove('banner-img-active');
+            bannersImg[1].classList.add('banner-img-active');
+        })
+        index = 1;
+    }
+    else if (index == 1) {
+        bannersImg[1].classList.add('banner-img-hiddenbynext');
         bannersImg[0].classList.add('banner-img-showbynext');
-    }
-    else {
-        bannersImg[index+1].classList.add('banner-img-showbynext');
-    }
-    bannersImg[index].addEventListener('webkitAnimationEnd',function() {
-        bannersImg[index].classList.remove('banner-img-hiddenbynext');
-        bannersImg[index].classList.remove('banner-img-active');
-        bannersBtn[index].classList.remove('banner-btn-active');
-        if (index == (bannersImg.length-1)) {
-            bannersImg[0].classList.add('banner-img-active');
-            bannersBtn[0].classList.add('banner-btn-active');
+        bannersImg[1].addEventListener('webkitAnimationEnd', function() {
+            bannersImg[1].classList.remove('banner-img-hiddenbynext');
             bannersImg[0].classList.remove('banner-img-showbynext');
-            }
-        else {
-            bannersImg[index+1].classList.add('banner-img-active');
-            bannersBtn[index+1].classList.add('banner-btn-active');
-            bannersImg[index+1].classList.remove('banner-img-showbynext');
-        }
-        index++;
-        if (index >=3) {index = 0;}    
-    })
-    
+            bannersImg[1].classList.remove('banner-img-active');
+            bannersImg[0].classList.add('banner-img-active');
+        })
+        index = 0;
+    }
 }
 btnLeftBanner.onclick = function() {
-    bannersImg[index].classList.add('banner-img-hiddenbyprev');
     if (index == 0) {
-        bannersImg[(bannersImg.length-1)].classList.add('banner-img-showbyprev');
+        bannersImg[0].classList.add('banner-img-hiddenbyprev');
+        bannersImg[1].classList.add('banner-img-showbyprev');
+        bannersImg[0].addEventListener('webkitAnimationEnd', function() {
+            bannersImg[0].classList.remove('banner-img-hiddenbyprev');
+            bannersImg[1].classList.remove('banner-img-showbyprev');
+            bannersImg[0].classList.remove('banner-img-active');
+            bannersImg[1].classList.add('banner-img-active');
+        })
+        index = 1;
     }
-    else {
-        bannersImg[index-1].classList.add('banner-img-showbyprev');
+    else if (index == 1) {
+        bannersImg[1].classList.add('banner-img-hiddenbyprev');
+        bannersImg[0].classList.add('banner-img-showbyprev');
+        bannersImg[1].addEventListener('webkitAnimationEnd', function() {
+            bannersImg[1].classList.remove('banner-img-hiddenbyprev');
+            bannersImg[0].classList.remove('banner-img-showbyprev');
+            bannersImg[1].classList.remove('banner-img-active');
+            bannersImg[0].classList.add('banner-img-active');
+        })
+        index = 0;
     }
-    bannersImg[index].addEventListener('webkitAnimationEnd',function() {
-        bannersImg[index].classList.remove('banner-img-hiddenbyprev');
-        bannersImg[index].classList.remove('banner-img-active');
-        bannersBtn[index].classList.remove('banner-btn-active');
-        if (index == 0) {
-            bannersImg[(bannersImg.length-1)].classList.add('banner-img-active');
-            bannersBtn[(bannersImg.length-1)].classList.add('banner-btn-active');
-            bannersImg[(bannersImg.length-1)].classList.remove('banner-img-showbyprev');
-            }
-        else {
-            bannersImg[index-1].classList.add('banner-img-active');
-            bannersBtn[index-1].classList.add('banner-btn-active');
-            bannersImg[index-1].classList.remove('banner-img-showbyprev');
-        }
-        index--;
-        if (index <0) {index = (bannersImg.length-1);}    
-    })
-    
 }
 
 
