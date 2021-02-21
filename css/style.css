@@ -198,6 +198,11 @@ i {
     position: relative;
 }
 
+.banner-img picture {
+    width: 100%;
+    height: 100%;
+}
+
 .banner-img-active {
     display: block;
 }
@@ -460,12 +465,12 @@ i {
 
 .hot-product-menu li {
     color: var(--primary-color);
-    padding: 12px 0;
+    padding: 12px 10px;
     width: 200px;
     border: 1px solid var(--primary-color);
     text-align: center;
     margin: 0 10px;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 600;
     cursor: pointer;
 }
@@ -475,7 +480,7 @@ i {
         width: 984px;
     }
     .hot-product-menu li {
-        width: 20%;
+        width: 25%;
     }
     .copyright .col:last-child {
         text-align: left !important;
