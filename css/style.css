@@ -386,7 +386,7 @@ i {
 .products-intro {
     width: 100%;
     margin-top: 36px;
-    margin-bottom: 16px;
+    margin-bottom: 26px;
 }
 
 .product-intro {
@@ -878,6 +878,9 @@ i {
     }
     .grid {
         width: 100%;
+    }
+    .block-content {
+        margin: 70px auto;
     }
 }
 
