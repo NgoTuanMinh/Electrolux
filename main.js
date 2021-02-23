@@ -18,6 +18,8 @@ btnRightBanner.onclick = function() {
             bannersImg[1].classList.remove('banner-img-showbynext');
             bannersImg[0].classList.remove('banner-img-active');
             bannersImg[1].classList.add('banner-img-active');
+            bannersBtn[0].classList.remove('banner-btn-active');
+            bannersBtn[1].classList.add('banner-btn-active');
         })
         index = 1;
     }
@@ -29,6 +31,8 @@ btnRightBanner.onclick = function() {
             bannersImg[0].classList.remove('banner-img-showbynext');
             bannersImg[1].classList.remove('banner-img-active');
             bannersImg[0].classList.add('banner-img-active');
+            bannersBtn[1].classList.remove('banner-btn-active');
+            bannersBtn[0].classList.add('banner-btn-active');
         })
         index = 0;
     }
@@ -42,6 +46,8 @@ btnLeftBanner.onclick = function() {
             bannersImg[1].classList.remove('banner-img-showbyprev');
             bannersImg[0].classList.remove('banner-img-active');
             bannersImg[1].classList.add('banner-img-active');
+            bannersBtn[0].classList.remove('banner-btn-active');
+            bannersBtn[1].classList.add('banner-btn-active');
         })
         index = 1;
     }
@@ -53,10 +59,23 @@ btnLeftBanner.onclick = function() {
             bannersImg[0].classList.remove('banner-img-showbyprev');
             bannersImg[1].classList.remove('banner-img-active');
             bannersImg[0].classList.add('banner-img-active');
+            bannersBtn[1].classList.remove('banner-btn-active');
+            bannersBtn[0].classList.add('banner-btn-active');
         })
         index = 0;
     }
 }
+
+bannersBtn.forEach(function(btn,index) {
+    btn.onclick = function() {
+        for (let i = 0; i < bannersBtn.length; i++) {
+            bannersBtn[i].classList.remove('banner-btn-active');
+            bannersImg[i].classList.remove('banner-img-active');
+        }
+        bannersBtn[index].classList.add('banner-btn-active');
+        bannersImg[index].classList.add('banner-img-active');
+    }
+})
 
 
 // Hot Product
@@ -90,3 +109,18 @@ overlayNavigation.onclick = function() {
     navigationMobile.classList.remove('navigation__menu-show');
     navigationElement.classList.remove('navigation-hidden');
 }
+
+
+var plusBtnFooter = document.querySelectorAll('.footer .l-2 h2'),
+listFooter = document.querySelectorAll('.footer .l-2 ul');
+plusBtnFooter.forEach(function(btn,index) {
+    plusBtnFooter[index].onclick = function() {
+        if (index == 2) {
+            listFooter[index].classList.toggle('hide-on-mobile');
+            listFooter[index+1].classList.toggle('hide-on-mobile');
+        }
+        else {
+            listFooter[index].classList.toggle('hide-on-mobile');
+        }
+    }
+})
